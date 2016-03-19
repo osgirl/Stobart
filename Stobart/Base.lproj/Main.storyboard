@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7v6-X0-gmF">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Your Trucks-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="vXZ-lx-hvc" customClass="STBHomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="07x-r2-Cni">
+                                <rect key="frame" x="0.0" y="104" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationLevel="2" indentationWidth="10" reuseIdentifier="STBTruckCellReuseIdentifier" id="bbF-sW-4az" userLabel="STBTruckCell" customClass="STBTruckCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bbF-sW-4az" id="sXd-SV-376">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="6WV-2W-Tfq"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Dc5-a2-bZh"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m5o-Yo-uYv">
+                                <rect key="frame" x="118" y="69" width="123" height="29"/>
+                                <segments>
+                                    <segment title="Trucks"/>
+                                    <segment title="Journeys"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlUpdated:" destination="vXZ-lx-hvc" eventType="valueChanged" id="n45-UA-jyX"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="07x-r2-Cni" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="40" id="0VT-pN-EY4"/>
+                            <constraint firstAttribute="trailing" secondItem="07x-r2-Cni" secondAttribute="trailing" id="21w-Xj-ubM"/>
+                            <constraint firstItem="07x-r2-Cni" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="XnE-OI-iB9"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="07x-r2-Cni" secondAttribute="bottom" constant="-40" id="dpP-8E-VGN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Your Trucks" id="VB1-Jv-dIn">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="hmM-vy-1EJ">
+                            <color key="tintColor" red="0.18604962729999999" green="0.54052241160000003" blue="0.2198783222" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="H88-z6-nJJ" kind="presentation" identifier="STBStartJourneySegueIdentifier" id="IRb-he-YZg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="n3n-hx-vMp">
+                            <color key="tintColor" red="0.18604962731201777" green="0.54052241161616155" blue="0.2198783221813583" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="QK8-zV-W79" kind="presentation" identifier="STBAddTruckSegueIdentifier" id="6wz-GC-aAI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="journeysDataSource" destination="Odl-RL-Tvh" id="mUe-Er-L9B"/>
+                        <outlet property="segmentedControl" destination="m5o-Yo-uYv" id="RIk-3c-B3H"/>
+                        <outlet property="tableView" destination="07x-r2-Cni" id="sO5-Ds-yQO"/>
+                        <outlet property="trucksDataSource" destination="G3c-jc-y2I" id="k5l-Fk-9u5"/>
+                        <segue destination="X0r-Z1-txI" kind="show" identifier="STBShowTruckSegueIdentifier" id="LU7-xu-yGV"/>
+                        <segue destination="GNk-Gl-XEF" kind="show" identifier="STBShowJourneySegueIdentifier" id="DWz-Av-ynI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <customObject id="G3c-jc-y2I" customClass="STBTrucksDataSource"/>
+                <customObject id="Odl-RL-Tvh" customClass="STBJourneysDataSource"/>
+            </objects>
+            <point key="canvasLocation" x="1188.5" y="316.5"/>
+        </scene>
+        <!--Journey View Controller-->
+        <scene sceneID="uIC-GI-p0a">
+            <objects>
+                <viewController id="GNk-Gl-XEF" customClass="STBJourneyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hfa-2d-yux"/>
+                        <viewControllerLayoutGuide type="bottom" id="qBS-lg-Lhw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7J4-gq-aZf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjN-yK-rrN">
+                                <rect key="frame" x="87" y="72" width="200" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="3Qo-Ik-Zhd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="60"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itx-YB-gC6" customClass="STBActionButton">
+                                <rect key="frame" x="16" y="617" width="343" height="30"/>
+                                <state key="normal" title="End Journey">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="endJourney:" destination="GNk-Gl-XEF" eventType="touchUpInside" id="BG6-FK-OzK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="YjN-yK-rrN" secondAttribute="trailing" constant="72" id="Fqh-XH-gEN"/>
+                            <constraint firstItem="YjN-yK-rrN" firstAttribute="leading" secondItem="7J4-gq-aZf" secondAttribute="leadingMargin" constant="71" id="UD1-GI-PMh"/>
+                            <constraint firstAttribute="centerX" secondItem="YjN-yK-rrN" secondAttribute="centerX" constant="0.5" id="qvj-rd-rUl"/>
+                            <constraint firstItem="YjN-yK-rrN" firstAttribute="top" secondItem="hfa-2d-yux" secondAttribute="bottom" constant="8" id="wZL-Kj-SBe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="endJourneyButton" destination="Itx-YB-gC6" id="aOG-db-kBM"/>
+                        <outlet property="trucksCountLabel" destination="YjN-yK-rrN" id="84B-hK-LCE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2qk-wr-0Zv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1704.5" y="-916.5"/>
+        </scene>
+        <!--Truck View Controller-->
+        <scene sceneID="4oP-vi-Rp8">
+            <objects>
+                <viewController id="X0r-Z1-txI" customClass="STBTruckViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pie-6L-dYV"/>
+                        <viewControllerLayoutGuide type="bottom" id="gaq-8L-ffy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="572-Bq-gFn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0h-C7-Uh1" userLabel="Last Spotted">
+                                <rect key="frame" x="16" y="72" width="343" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faf-KW-Pyb">
+                                <rect key="frame" x="82" y="101" width="211" height="84"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="60"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sightings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7d-gR-hgL">
+                                <rect key="frame" x="78" y="178" width="219" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a0-QD-rkn" customClass="STBActionButton">
+                                <rect key="frame" x="16" y="615" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rjE-kX-G5d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Add Sighting">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addSighting:" destination="X0r-Z1-txI" eventType="touchUpInside" id="D9Y-gX-WpA"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4IQ-zK-TNp">
+                                <rect key="frame" x="16" y="207" width="343" height="194"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0a0-QD-rkn" firstAttribute="leading" secondItem="572-Bq-gFn" secondAttribute="leadingMargin" id="8nl-JC-iTR"/>
+                            <constraint firstItem="0a0-QD-rkn" firstAttribute="trailing" secondItem="572-Bq-gFn" secondAttribute="trailingMargin" id="AYB-GN-Idx"/>
+                            <constraint firstAttribute="centerX" secondItem="0a0-QD-rkn" secondAttribute="centerX" id="XsR-tz-Sk3"/>
+                            <constraint firstItem="gaq-8L-ffy" firstAttribute="top" secondItem="0a0-QD-rkn" secondAttribute="bottom" constant="8" id="xhw-l0-o4J"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addSightingButton" destination="0a0-QD-rkn" id="FcS-Mk-qLU"/>
+                        <outlet property="lastSpottedLabel" destination="V0h-C7-Uh1" id="R1b-pq-Fnr"/>
+                        <outlet property="mapView" destination="4IQ-zK-TNp" id="Q3O-GB-mFx"/>
+                        <outlet property="numberOfSightingsLabel" destination="Faf-KW-Pyb" id="FaN-6V-Zg5"/>
+                        <outlet property="sightingsDescriptionLabel" destination="O7d-gR-hgL" id="Koj-QN-WTy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fSy-8i-L2T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1698.5" y="-116.5"/>
+        </scene>
+        <!--Add New Truck-->
+        <scene sceneID="t5e-yq-j1O">
+            <objects>
+                <viewController id="OYa-zw-XUV" customClass="STBAddTruckViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K2D-PJ-8Sx"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wgk-q0-pa5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sCy-BX-eaa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Truck Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zWB-dY-r6h">
+                                <rect key="frame" x="16" y="115" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOL-8y-wrF" customClass="STBActionButton">
+                                <rect key="frame" x="16" y="603" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="oi1-hY-buK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Add Truck">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addTruck:" destination="OYa-zw-XUV" eventType="touchUpInside" id="56M-6u-M0w"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qOL-8y-wrF" firstAttribute="leading" secondItem="sCy-BX-eaa" secondAttribute="leadingMargin" id="JQ9-A0-O4U"/>
+                            <constraint firstItem="Wgk-q0-pa5" firstAttribute="top" secondItem="qOL-8y-wrF" secondAttribute="bottom" constant="20" id="TRz-gH-NdA"/>
+                            <constraint firstItem="qOL-8y-wrF" firstAttribute="trailing" secondItem="sCy-BX-eaa" secondAttribute="trailingMargin" id="qYu-fr-YmG"/>
+                            <constraint firstAttribute="centerX" secondItem="qOL-8y-wrF" secondAttribute="centerX" id="z75-11-agG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add New Truck" id="UUx-YW-scw">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="YAB-Zb-rea">
+                            <connections>
+                                <segue destination="tXS-4a-cjG" kind="unwind" identifier="UnwindToHomeSegueIdentifier" unwindAction="unwindToHome:" id="qbU-k0-5Mt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addTruckButton" destination="qOL-8y-wrF" id="Ixv-Y8-EhT"/>
+                        <outlet property="nameTextField" destination="zWB-dY-r6h" id="a9Y-WI-zRh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="807-Qc-yFM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="tXS-4a-cjG" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2265.5" y="760.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ctN-Oi-XGV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7v6-X0-gmF" customClass="STBNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vud-RR-fR3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="w1e-bK-vOe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N5S-m8-Qg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="712" y="317"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8fN-V3-06g">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QK8-zV-W79" customClass="STBNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E36-sP-ROQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OYa-zw-XUV" kind="relationship" relationship="rootViewController" id="LJW-Rm-kWi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K44-Qy-PAO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1698.5" y="760.5"/>
+        </scene>
+        <!--Start New Journey-->
+        <scene sceneID="5aC-JS-i6B">
+            <objects>
+                <viewController id="7EK-WC-i6H" customClass="STBStartJourneyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qxf-Gz-3vY"/>
+                        <viewControllerLayoutGuide type="bottom" id="nhg-M4-jtd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yJC-Yb-pS4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndh-VJ-rbT" customClass="STBActionButton">
+                                <rect key="frame" x="16" y="603" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="cIJ-0r-9bJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Begin Journey">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startJourney:" destination="7EK-WC-i6H" eventType="touchUpInside" id="c5z-63-A8r"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Journey Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z2o-nr-IdB">
+                                <rect key="frame" x="16" y="115" width="343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nhg-M4-jtd" firstAttribute="top" secondItem="ndh-VJ-rbT" secondAttribute="bottom" constant="20" id="Htp-fl-qBg"/>
+                            <constraint firstItem="ndh-VJ-rbT" firstAttribute="leading" secondItem="yJC-Yb-pS4" secondAttribute="leadingMargin" id="OFl-Z7-nU9"/>
+                            <constraint firstItem="ndh-VJ-rbT" firstAttribute="trailing" secondItem="yJC-Yb-pS4" secondAttribute="trailingMargin" id="fVT-JQ-5wv"/>
+                            <constraint firstAttribute="centerX" secondItem="ndh-VJ-rbT" secondAttribute="centerX" id="kT8-a9-2h8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Start New Journey" id="a8J-sv-mEq">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="N7H-0W-KzF">
+                            <connections>
+                                <segue destination="nTI-ht-bzu" kind="unwind" identifier="UnwindToHomeSegueIdentifier" unwindAction="unwindToHome:" id="5gq-fz-cvw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="Z2o-nr-IdB" id="XNs-7j-ogj"/>
+                        <outlet property="startJourneyButton" destination="ndh-VJ-rbT" id="gIf-TJ-25K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Exc-Lu-tbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nTI-ht-bzu" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2265.5" y="1533.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gzZ-Nm-IIY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H88-z6-nJJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xWy-NL-4cH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7EK-WC-i6H" kind="relationship" relationship="rootViewController" id="TyG-tN-3sc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AaC-eN-NUF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1698.5" y="1533.5"/>
+        </scene>
+    </scenes>
+</document>
